@@ -18,10 +18,12 @@ export function RSVPForm() {
     formState: { errors },
     reset,
   } = useForm<RSVPFormData>({
+    // zodResolver types can be incompatible; cast safely
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     resolver: zodResolver(rsvpFormSchema) as any,
   });
 
-  const onSubmit: SubmitHandler<any> = async (data: RSVPFormData) => {
+  const onSubmit: SubmitHandler<RSVPFormData> = async (data: RSVPFormData) => {
     setFormState("loading");
     setErrorMessage("");
 
@@ -41,11 +43,20 @@ export function RSVPForm() {
 
       setFormState("success");
       reset();
+      // show toast
+      // lazy import to avoid SSR issues
+      const mod = await import("@/components/Toast");
+      mod.toast("Mulțumim! Răspunsul a fost înregistrat.", "success");
       setTimeout(() => setFormState("idle"), 5000);
     } catch (error) {
       setFormState("error");
       setErrorMessage(
         error instanceof Error ? error.message : "Eroare necunoscută"
+      );
+      const mod = await import("@/components/Toast");
+      mod.toast(
+        error instanceof Error ? error.message : "Eroare la trimitere",
+        "error"
       );
     }
   };

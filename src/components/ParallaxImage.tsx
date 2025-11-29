@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 
 interface ParallaxImageProps {
   src: string;
@@ -10,12 +11,12 @@ interface ParallaxImageProps {
 }
 
 export function ParallaxImage({ src, alt = "", className = "", speed = 0.2 }: ParallaxImageProps) {
-  const ref = useRef<HTMLImageElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const node = el as HTMLImageElement;
+    const node = el as HTMLDivElement;
 
     let raf = 0;
 
@@ -24,9 +25,8 @@ export function ParallaxImage({ src, alt = "", className = "", speed = 0.2 }: Pa
       raf = requestAnimationFrame(() => {
         const rect = node.getBoundingClientRect();
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        // progress from -1..1 where 0 is center of viewport
         const progress = (rect.top + rect.height / 2 - windowHeight / 2) / (windowHeight / 2);
-        const translateY = progress * 20 * speed; // ±20px scaled by speed
+        const translateY = progress * 20 * speed;
         node.style.transform = `translateY(${translateY}px)`;
       });
     }
@@ -42,5 +42,9 @@ export function ParallaxImage({ src, alt = "", className = "", speed = 0.2 }: Pa
     };
   }, [speed]);
 
-  return <img ref={ref} src={src} alt={alt} className={className} aria-hidden />;
+  return (
+    <div ref={ref} className={`relative overflow-hidden ${className}`} aria-hidden>
+      <Image src={src} alt={alt} fill sizes="(max-width: 768px) 160px, 320px" priority={false} />
+    </div>
+  );
 }

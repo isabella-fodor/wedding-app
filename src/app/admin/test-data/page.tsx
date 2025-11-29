@@ -40,7 +40,7 @@ export default function TestDataPage() {
 
   useEffect(() => {
     fetchRsvps();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
   }, []);
 
   const handleDelete = async (id: string) => {
@@ -56,8 +56,11 @@ export default function TestDataPage() {
       if (!res.ok) throw new Error(json?.error || 'Delete failed');
       // refresh
       fetchRsvps();
+      const mod = await import("@/components/Toast");
+      mod.toast("RSVP șters cu succes", "success");
     } catch (err) {
-      alert(err instanceof Error ? err.message : String(err));
+      const mod = await import("@/components/Toast");
+      mod.toast(err instanceof Error ? err.message : String(err), "error");
     }
   };
 

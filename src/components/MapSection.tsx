@@ -4,7 +4,7 @@ import { weddingConfig } from "@/wedding.config";
 
 export function MapSection() {
   return (
-    <section className="py-16 px-4 bg-ivory">
+    <section className="py-16 px-4 bg-ivory animate-fade-in animate-delay-350">
       <div className="max-w-5xl mx-auto container-wide">
         <h2 className="text-4xl md:text-5xl font-playfair text-center mb-12 text-burgundy">Cum ajungi la nuntă</h2>
 

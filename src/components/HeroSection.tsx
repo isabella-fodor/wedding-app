@@ -10,7 +10,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-center py-16 px-6">
+    <section className="relative min-h-screen flex items-center justify-center text-center py-16 px-6 animate-fade-in animate-delay-0">
       {/* animated background layer */}
       <div className="bg-particles" aria-hidden />
 

@@ -7,6 +7,7 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 export const isSupabaseConfigured = !!(supabaseUrl && supabaseAnonKey);
 
 // Create client only if configured, otherwise create a dummy client for build time
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export let supabase: any;
 
 if (supabaseUrl && supabaseAnonKey) {
@@ -23,3 +24,4 @@ if (supabaseUrl && supabaseAnonKey) {
     }),
   };
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */

@@ -1,11 +1,10 @@
 "use client";
 
 import { RSVPForm } from "./RSVPForm";
-import { weddingConfig } from "@/wedding.config";
 
 export function RSVPSection() {
   return (
-    <section id="rsvp-section" className="py-16 px-4 bg-ivory">
+    <section id="rsvp-section" className="py-16 px-4 bg-ivory animate-fade-in animate-delay-450">
       <div className="max-w-3xl mx-auto container-wide">
         <h2 className="text-4xl md:text-5xl font-playfair text-center mb-4 text-burgundy animate-fade-in">
           Confirmă participarea

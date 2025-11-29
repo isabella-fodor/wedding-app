@@ -4,7 +4,7 @@ import { weddingConfig } from "@/wedding.config";
 
 export function InvitationSection() {
   return (
-    <section className="site-section bg-ivory" aria-labelledby="invitation-heading">
+    <section className="site-section bg-ivory animate-fade-in animate-delay-150" aria-labelledby="invitation-heading">
       <div className="container-wide-lg mx-auto px-4">
         {/* Greeting */}
         <h2

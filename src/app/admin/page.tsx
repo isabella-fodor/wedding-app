@@ -1,8 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { weddingConfig } from "@/wedding.config";
+import { useState, useEffect, useCallback } from "react";
 
 interface RSVP {
   id: string;
@@ -17,7 +15,7 @@ interface RSVP {
 }
 
 export default function AdminPage() {
-  const router = useRouter();
+  
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [rsvps, setRsvps] = useState<RSVP[]>([]);
@@ -25,6 +23,29 @@ export default function AdminPage() {
   const [error, setError] = useState("");
   const [filter, setFilter] = useState<"ALL" | "YES" | "NO" | "MAYBE">("ALL");
   const [token, setToken] = useState("");
+
+  const fetchRsvps = useCallback(async (authToken: string) => {
+    setLoading(true);
+    try {
+      const url = new URL("/api/admin/rsvps", window.location.origin);
+      url.searchParams.set("status", filter);
+
+      const response = await fetch(url, {
+        headers: { Authorization: `Bearer ${authToken}` },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch RSVPs");
+      }
+
+      const data = await response.json();
+      setRsvps(data.data || []);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to fetch RSVPs");
+    } finally {
+      setLoading(false);
+    }
+  }, [filter]);
 
   // Check for existing token
   useEffect(() => {
@@ -34,7 +55,7 @@ export default function AdminPage() {
       setIsAuthenticated(true);
       fetchRsvps(savedToken);
     }
-  }, []);
+  }, [fetchRsvps]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,28 +86,7 @@ export default function AdminPage() {
     }
   };
 
-  const fetchRsvps = async (authToken: string) => {
-    setLoading(true);
-    try {
-      const url = new URL("/api/admin/rsvps", window.location.origin);
-      url.searchParams.set("status", filter);
-
-      const response = await fetch(url, {
-        headers: { Authorization: `Bearer ${authToken}` },
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch RSVPs");
-      }
-
-      const data = await response.json();
-      setRsvps(data.data || []);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to fetch RSVPs");
-    } finally {
-      setLoading(false);
-    }
-  };
+  
 
   const handleLogout = () => {
     localStorage.removeItem("adminToken");

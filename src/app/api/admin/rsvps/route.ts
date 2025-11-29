@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
       try {
         jwt.verify(token, SECRET);
         valid = true;
-      } catch (e) {
+      } catch {
         // ignore
       }
     }
@@ -90,7 +90,7 @@ export async function DELETE(request: NextRequest) {
       try {
         jwt.verify(token, SECRET);
         valid = true;
-      } catch (e) {
+      } catch {
         // ignore
       }
     }

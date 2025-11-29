@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
-import bcryptjs from "bcryptjs";
 
 const SECRET_KEY = process.env.JWT_SECRET_KEY || "your-secret-key-change-in-production";
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";

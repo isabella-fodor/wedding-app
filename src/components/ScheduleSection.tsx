@@ -4,7 +4,7 @@ import { weddingConfig } from "@/wedding.config";
 
 export function ScheduleSection() {
   return (
-    <section className="site-section bg-ivory">
+    <section className="site-section bg-ivory animate-fade-in animate-delay-250">
       <div className="container-wide-lg mx-auto">
         <h2 className="text-4xl md:text-5xl font-playfair text-center mb-8 text-burgundy">Program</h2>
 

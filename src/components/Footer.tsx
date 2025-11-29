@@ -4,10 +4,7 @@ import { weddingConfig } from "@/wedding.config";
 
 export function Footer() {
   return (
-    <footer
-      className="py-12 px-4"
-      style={{ backgroundColor: weddingConfig.colors.secondary }}
-    >
+    <footer className="py-12 px-4 bg-secondary animate-fade-in">
       <div className="max-w-4xl mx-auto text-center">
         <p className="text-white mb-2">
           {weddingConfig.couple.names}

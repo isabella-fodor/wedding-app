@@ -230,6 +230,20 @@ Day Before Wedding:
 - [ ] No outstanding technical issues
 - [ ] Backup of all response data
 
+## Accessibility & Test Scripts
+
+- [ ] Site respects `prefers-reduced-motion` for users who request reduced motion (styles in `src/app/globals.css`).
+- [ ] To disable animations manually (for debugging or low-power devices), add `no-animations` to the `<body>` element.
+- [ ] A helper script is provided at `scripts/insert_test_rsvp.js` to insert a test RSVP into your Supabase `rsvps` table. It reads `.env.local` for `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+
+Run the script locally to verify Supabase connectivity:
+
+```bash
+npm run seed:test
+```
+
+Confirm the row exists in Supabase (`SELECT * FROM rsvps;`) and that the admin dashboard shows it.
+
 ## Congratulations! 🎉
 
 Your wedding website is live and ready!

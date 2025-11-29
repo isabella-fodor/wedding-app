@@ -53,8 +53,7 @@ export function RSVPForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="max-w-2xl mx-auto space-y-6 bg-white p-8 rounded-lg shadow-lg"
-      style={{ borderTopColor: weddingConfig.colors.primary, borderTopWidth: "4px" }}
+      className="max-w-2xl mx-auto space-y-6 p-6 rounded-xl shadow-soft-lg animate-fade-in"
     >
       {/* Success Message */}
       {formState === "success" && (
@@ -86,7 +85,7 @@ export function RSVPForm() {
               type="text"
               id="fullName"
               placeholder="ex. Ion Popescu"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-0"
+              className="w-full bg-transparent px-4 py-2 rounded-lg"
               disabled={formState === "loading"}
             />
             {errors.fullName && (
@@ -215,17 +214,11 @@ export function RSVPForm() {
           </div>
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={formState === "loading"}
-            className="w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-200 disabled:opacity-50"
-            style={{
-              backgroundColor: weddingConfig.colors.primary,
-              color: weddingConfig.colors.secondary,
-            }}
-          >
-            {formState === "loading" ? "Se trimite..." : "Confirmă participarea"}
-          </button>
+          <div className="flex">
+            <button type="submit" disabled={formState === "loading"} className="btn-gold w-full disabled:opacity-50">
+              {formState === "loading" ? "Se trimite..." : "Confirmă participarea"}
+            </button>
+          </div>
 
           {/* Deadline */}
           <p className="text-center text-sm text-gray-600">

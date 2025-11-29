@@ -5,25 +5,18 @@ import { weddingConfig } from "@/wedding.config";
 
 export function RSVPSection() {
   return (
-    <section
-      id="rsvp-section"
-      className="py-16 px-4"
-      style={{ backgroundColor: weddingConfig.colors.accent }}
-    >
-      <div className="max-w-3xl mx-auto">
-        <h2
-          className="text-4xl md:text-5xl font-bold text-center mb-4"
-          style={{
-            fontFamily: `'${weddingConfig.fonts.serif}', serif`,
-            color: weddingConfig.colors.secondary,
-          }}
-        >
+    <section id="rsvp-section" className="py-16 px-4 bg-ivory">
+      <div className="max-w-3xl mx-auto container-wide">
+        <h2 className="text-4xl md:text-5xl font-playfair text-center mb-4 text-burgundy animate-fade-in">
           Confirmă participarea
         </h2>
-        <p className="text-center text-gray-600 mb-12">
+        <p className="text-center text-ivy mb-8">
           Completează formularul de mai jos pentru a ne confirma că vin la nuntă.
         </p>
-        <RSVPForm />
+
+        <div className="mx-auto max-w-2xl glass rounded-2xl p-8 animate-fade-in">
+          <RSVPForm />
+        </div>
       </div>
     </section>
   );

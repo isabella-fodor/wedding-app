@@ -8,7 +8,7 @@ export const weddingConfig = {
   couple: {
     name1: "Isabella",
     name2: "Your Partner",
-    names: "Isabella & Your Partner",
+    names: "Isabella & Cristian",
   },
 
   // Wedding date and time
@@ -20,19 +20,14 @@ export const weddingConfig = {
   // Sections with ceremony and reception times
   schedule: [
     {
-      title: "Cununie Civilă",
-      time: "11:00 AM",
-      location: "Primăria, Str. Principale 42, București",
-    },
-    {
       title: "Cununie Religioasă",
-      time: "12:30 PM",
-      location: "Biserica Sfântul Ioan, Str. Bisericii 10, București",
+      time: "17:00 PM",
+      location: "Biserica Sfânta Varvara, Strada Venus, Petroșani",
     },
     {
-      title: "Recepție",
-      time: "4:00 PM - 12:00 AM",
-      location: "Restaurant Elegance, Aleea Viitorului 5, București",
+      title: "Sala de petrecere",
+      time: "19:00 PM",
+      location: "Strada Socaneasca Nr 8, Vulcan",
     },
   ],
 

@@ -4,53 +4,24 @@ import { weddingConfig } from "@/wedding.config";
 
 export function ScheduleSection() {
   return (
-    <section className="py-16 px-4" style={{ backgroundColor: weddingConfig.colors.lightBg }}>
-      <div className="max-w-3xl mx-auto">
-        <h2
-          className="text-4xl md:text-5xl font-bold text-center mb-12"
-          style={{
-            fontFamily: `'${weddingConfig.fonts.serif}', serif`,
-            color: weddingConfig.colors.secondary,
-          }}
-        >
-          Program
-        </h2>
+    <section className="site-section bg-ivory">
+      <div className="container-wide-lg mx-auto">
+        <h2 className="text-4xl md:text-5xl font-playfair text-center mb-8 text-burgundy">Program</h2>
 
-        <div className="space-y-6">
+        <div className="grid gap-6">
           {weddingConfig.schedule.map((event, index) => (
-            <div
-              key={index}
-              className="flex gap-6 items-start bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-            >
-              {/* Time badge */}
-              <div
-                className="flex-shrink-0 w-24 h-24 rounded-lg flex items-center justify-center text-center"
-                style={{ backgroundColor: weddingConfig.colors.primary }}
-              >
-                <p
-                  className="font-bold text-sm"
-                  style={{ color: weddingConfig.colors.secondary }}
-                >
-                  {event.time}
-                </p>
+            <article key={index} className="glass p-6 rounded-2xl shadow-soft-lg flex flex-col md:flex-row md:items-start gap-4 md:gap-6 transition-transform hover:-translate-y-1 animate-fade-in">
+              <div className="md:flex-shrink-0 w-full md:w-32 flex items-center md:justify-center">
+                <div className="w-full md:w-24 h-20 md:h-20 rounded-2xl flex items-center justify-center bg-burgundy text-ivory">
+                  <time className="text-sm font-semibold">{event.time}</time>
+                </div>
               </div>
 
-              {/* Event details */}
-              <div className="flex-grow">
-                <h3
-                  className="text-2xl font-bold mb-2"
-                  style={{
-                    fontFamily: `'${weddingConfig.fonts.serif}', serif`,
-                    color: weddingConfig.colors.secondary,
-                  }}
-                >
-                  {event.title}
-                </h3>
-                <p className="text-base" style={{ color: weddingConfig.colors.text }}>
-                  📍 {event.location}
-                </p>
+              <div className="flex-1">
+                <h3 className="text-2xl font-playfair mb-1 text-burgundy">{event.title}</h3>
+                <p className="text-base text-ivy">📍 {event.location}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

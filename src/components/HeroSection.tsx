@@ -1,6 +1,7 @@
 "use client";
 
 import { weddingConfig } from "@/wedding.config";
+import { ParallaxImage } from "./ParallaxImage";
 
 export function HeroSection() {
   const scrollToRsvp = () => {
@@ -9,58 +10,40 @@ export function HeroSection() {
   };
 
   return (
-    <div
-      className="relative min-h-screen flex items-center justify-center text-center py-12 px-4"
-      style={{
-        background: `linear-gradient(135deg, ${weddingConfig.colors.lightBg} 0%, ${weddingConfig.colors.accent} 100%)`,
-      }}
-    >
-      {/* Decorative background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-24 h-24 rounded-full border-2" style={{ borderColor: weddingConfig.colors.primary }}></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 rounded-full border-2" style={{ borderColor: weddingConfig.colors.secondary }}></div>
+    <section className="relative min-h-screen flex items-center justify-center text-center py-16 px-6">
+      {/* animated background layer */}
+      <div className="bg-particles" aria-hidden />
+
+      {/* Floral left */}
+      <div className="hidden md:block absolute left-6 top-12 w-40 h-56 floral-float z-10">
+        <ParallaxImage src="/floral-left.svg" className="w-full h-full" speed={0.18} />
       </div>
 
-      <div className="relative z-10 max-w-3xl">
-        {/* Main Heading */}
-        <h1
-          className="text-5xl md:text-7xl font-bold mb-4"
-          style={{
-            fontFamily: `'${weddingConfig.fonts.serif}', serif`,
-            color: weddingConfig.colors.secondary,
-          }}
-        >
-          {weddingConfig.couple.names}
-        </h1>
+      <div className="relative z-20 container-wide-lg">
+        <div className="mx-auto max-w-4xl glass glass-strong rounded-3xl p-12 shadow-soft-lg animate-fade-in">
+          <div className="mb-6">
+            <h1 className="text-5xl md:text-7xl font-playfair tracking-widest mb-2 text-burgundy leading-tight">
+              {weddingConfig.couple.names}
+            </h1>
+            <p className="text-lg md:text-xl font-inter text-ivy/90 uppercase tracking-wide text-gold">
+              {weddingConfig.wedding.date}
+            </p>
+          </div>
 
-        {/* Date */}
-        <p className="text-2xl md:text-3xl mb-8" style={{ color: weddingConfig.colors.primary }}>
-          {weddingConfig.wedding.date}
-        </p>
+          <p className="mt-6 text-md md:text-lg text-ivy/80 font-inter leading-relaxed">
+            {weddingConfig.invitation.greeting}
+          </p>
 
-        {/* Subtitle */}
-        <p
-          className="text-xl md:text-2xl mb-12 font-light"
-          style={{
-            fontFamily: `'${weddingConfig.fonts.serif}', serif`,
-            color: weddingConfig.colors.secondary,
-          }}
-        >
-          {weddingConfig.invitation.subtitle}
-        </p>
-
-        {/* CTA Button */}
-        <button
-          onClick={scrollToRsvp}
-          className="inline-block px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
-          style={{
-            backgroundColor: weddingConfig.colors.primary,
-            color: weddingConfig.colors.secondary,
-          }}
-        >
-          ↓ Confirmă participarea ↓
-        </button>
+          <div className="mt-8 flex justify-center">
+            <button onClick={scrollToRsvp} className="btn-outline-gold hover-gold min-w-[220px]">
+              Confirmă participarea
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+      <div className="hidden md:block absolute right-6 bottom-12 w-40 h-56 floral-float z-10 rotate-12">
+        <ParallaxImage src="/floral-right.svg" className="w-full h-full" speed={0.22} />
+      </div>
+    </section>
   );
 }

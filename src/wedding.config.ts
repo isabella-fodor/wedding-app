@@ -8,7 +8,7 @@ export const weddingConfig = {
   couple: {
     name1: "Isabella",
     name2: "Your Partner",
-    names: "Isabella & Your Partner",
+    names: "Isabella & Cristian",
   },
 
   // Wedding date and time
@@ -64,8 +64,8 @@ export const weddingConfig = {
     address: "Aleea Viitorului 5, București",
     latitude: 44.4268,
     longitude: 26.1025,
-    mapEmbedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.1234567890123!2d26.1025!3d44.4268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDI1JzM2LjUiTiAyNsKwMDYnMDkuMCJF!5e0!3m2!1sro!2sro!4v1234567890",
+    // Embed for Paradisul Verde, Vulcan (Hunedoara)
+    mapEmbedUrl: "https://www.google.com/maps?q=Paradisul+Verde+Vulcan+Hunedoara&output=embed",
   },
 
   // Menu options for RSVP
@@ -73,11 +73,15 @@ export const weddingConfig = {
 
   // Colors for the website
   colors: {
-    primary: "#d4af37", // Gold
-    secondary: "#1a3a3a", // Dark green
-    accent: "#f5f5f0", // Cream
+    primary: "#691216", // Burgundy deep
+    gold: "#96800c", // Gold accent
+    ivory: "#f5f3ef",
+    ivy: "#2F4F4F",
     text: "#2c2c2c",
+    // backward-compatible aliases (some components expect these keys)
+    secondary: "#2F4F4F", // dark green / secondary color
     lightBg: "#f9f7f4",
+    accent: "#f5f3ef",
   },
 
   // Fonts (using Google Fonts)

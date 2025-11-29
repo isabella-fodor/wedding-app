@@ -368,3 +368,21 @@ export const weddingConfig = {
 ---
 
 Made with ❤️ for your special day! 🎉
+
+---
+
+Accessibility & Animations
+- **Reduced motion**: The site respects the user's `prefers-reduced-motion` setting. Animations are disabled automatically for users who request reduced motion.
+- **Disable animations manually**: To temporarily disable all decorative animations (useful for debugging or very low-power devices), add the `no-animations` class to the `<body>` element, e.g. `<body class="no-animations">`.
+
+Automated RSVP Test Script
+- A helper script is included at `scripts/insert_test_rsvp.js` to insert a test RSVP directly into your Supabase `rsvps` table. It reads `.env.local` for `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+
+Run the script locally:
+
+```bash
+npm run seed:test
+```
+
+The script prints the inserted row ID on success. Use it to verify your Supabase setup and RLS policies.
+

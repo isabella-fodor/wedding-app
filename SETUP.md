@@ -118,7 +118,7 @@ Edit `src/wedding.config.ts` - this controls EVERYTHING:
 couple: {
   name1: "Isabella",           // Your name
   name2: "Your Partner",       // Partner name
-  names: "Isabella & John",    // Both names together
+  names: "Isabella & Cristian",    // Both names together
 },
 
 wedding: {

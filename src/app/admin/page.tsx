@@ -139,7 +139,7 @@ export default function AdminPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-          <h1 className="text-3xl font-bold mb-6 text-center" style={{ color: weddingConfig.colors.secondary }}>
+          <h1 className="text-3xl font-bold mb-6 text-center text-secondary">
             Admin Panel
           </h1>
           <form onSubmit={handleLogin} className="space-y-4">
@@ -161,8 +161,7 @@ export default function AdminPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2 px-4 rounded-lg font-semibold text-white transition-all"
-              style={{ backgroundColor: weddingConfig.colors.primary }}
+              className="w-full py-2 px-4 rounded-lg font-semibold text-white transition-all bg-primary"
             >
               {loading ? "Se conectează..." : "Conectare"}
             </button>
@@ -181,9 +180,7 @@ export default function AdminPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold" style={{ color: weddingConfig.colors.secondary }}>
-            Admin Panel
-          </h1>
+          <h1 className="text-4xl font-bold text-secondary">Admin Panel</h1>
           <button
             onClick={handleLogout}
             className="px-4 py-2 rounded-lg font-semibold text-white bg-red-600 hover:bg-red-700 transition-colors"
@@ -221,13 +218,8 @@ export default function AdminPage() {
                   key={f}
                   onClick={() => handleFilterChange(f)}
                   className={`px-4 py-2 rounded-lg font-semibold transition-all ${
-                    filter === f
-                      ? "text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    filter === f ? "bg-primary text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
-                  style={{
-                    backgroundColor: filter === f ? weddingConfig.colors.primary : undefined,
-                  }}
                 >
                   {f === "YES" ? "VIN" : f === "NO" ? "NU VIN" : f === "MAYBE" ? "INCERT" : "TOTI"}
                 </button>
@@ -246,7 +238,7 @@ export default function AdminPage() {
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead style={{ backgroundColor: weddingConfig.colors.lightBg }}>
+              <thead className="bg-lightBg">
                 <tr>
                   <th className="px-4 py-3 text-left font-semibold">Nume</th>
                   <th className="px-4 py-3 text-left font-semibold">Status</th>
@@ -276,15 +268,13 @@ export default function AdminPage() {
                       <td className="px-4 py-3 font-semibold">{rsvp.full_name}</td>
                       <td className="px-4 py-3">
                         <span
-                          className="px-3 py-1 rounded-full text-sm font-semibold text-white"
-                          style={{
-                            backgroundColor:
-                              rsvp.status === "YES"
-                                ? "#10b981"
-                                : rsvp.status === "NO"
-                                  ? "#ef4444"
-                                  : "#f59e0b",
-                          }}
+                          className={`px-3 py-1 rounded-full text-sm font-semibold text-white ${
+                            rsvp.status === "YES"
+                              ? "bg-emerald-500"
+                              : rsvp.status === "NO"
+                                ? "bg-red-500"
+                                : "bg-amber-500"
+                          }`}
                         >
                           {rsvp.status === "YES" ? "VIN" : rsvp.status === "NO" ? "NU" : "INCERT"}
                         </span>

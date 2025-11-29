@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import Image from "next/image";
 
 interface ParallaxImageProps {
   src: string;
@@ -43,8 +42,8 @@ export function ParallaxImage({ src, alt = "", className = "", speed = 0.2 }: Pa
   }, [speed]);
 
   return (
-    <div ref={ref} className={`relative overflow-hidden ${className}`} aria-hidden>
-      <Image src={src} alt={alt} fill sizes="(max-width: 768px) 160px, 320px" priority={false} />
+    <div ref={ref} className={`relative overflow-visible w-full h-full ${className}`} aria-hidden>
+      <img src={src} alt={alt} className="w-full h-full object-contain" />
     </div>
   );
 }

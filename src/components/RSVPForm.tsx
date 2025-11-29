@@ -68,9 +68,9 @@ export function RSVPForm() {
     >
       {/* Success Message */}
       {formState === "success" && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-          <p className="text-green-800 font-semibold">✓ Mulțumim pentru răspuns!</p>
-          <p className="text-green-700 text-sm mt-1">
+        <div className="bg-ivory/50 border border-burgundy/20 rounded-lg p-4">
+          <p className="text-burgundy font-semibold">✓ Mulțumim pentru răspuns!</p>
+          <p className="text-burgundy/80 text-sm mt-1">
             Abia așteptăm să ne vedem la nuntă. Dacă aveți întrebări, nu ezitați să ne contactați.
           </p>
         </div>
@@ -78,9 +78,9 @@ export function RSVPForm() {
 
       {/* Error Message */}
       {formState === "error" && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <p className="text-red-800 font-semibold">Eroare</p>
-          <p className="text-red-700 text-sm mt-1">{errorMessage}</p>
+        <div className="bg-burgundy/10 border border-burgundy/20 rounded-lg p-4">
+          <p className="text-burgundy font-semibold">Eroare</p>
+          <p className="text-burgundy/80 text-sm mt-1">{errorMessage}</p>
         </div>
       )}
 
@@ -114,11 +114,11 @@ export function RSVPForm() {
               type="email"
               id="email"
               placeholder="ex. ion@example.com"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+              className="w-full bg-transparent px-4 py-2 rounded-lg"
               disabled={formState === "loading"}
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+              <p className="text-burgundy text-sm mt-1">{errors.email.message}</p>
             )}
           </div>
 
@@ -132,23 +132,23 @@ export function RSVPForm() {
               type="tel"
               id="phone"
               placeholder="ex. +40 712 345 678"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+              className="w-full bg-transparent px-4 py-2 rounded-lg"
               disabled={formState === "loading"}
             />
             {errors.phone && (
-              <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+              <p className="text-burgundy text-sm mt-1">{errors.phone.message}</p>
             )}
           </div>
 
           {/* Status */}
           <div>
             <label htmlFor="status" className="block text-sm font-semibold mb-2">
-              Participare <span className="text-red-500">*</span>
+              Participare <span className="text-burgundy">*</span>
             </label>
             <select
               {...register("status")}
               id="status"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+              className="w-full bg-transparent px-4 py-2 rounded-lg"
               disabled={formState === "loading"}
             >
               <option value="">Selectați un răspuns...</option>
@@ -157,14 +157,14 @@ export function RSVPForm() {
               <option value="MAYBE">Încă nu știu</option>
             </select>
             {errors.status && (
-              <p className="text-red-500 text-sm mt-1">{errors.status.message}</p>
+              <p className="text-burgundy text-sm mt-1">{errors.status.message}</p>
             )}
           </div>
 
           {/* People Count */}
           <div>
             <label htmlFor="peopleCount" className="block text-sm font-semibold mb-2">
-              Număr de persoane <span className="text-red-500">*</span>
+              Număr de persoane <span className="text-burgundy">*</span>
             </label>
             <input
               {...register("peopleCount")}
@@ -173,11 +173,11 @@ export function RSVPForm() {
               min="1"
               max="5"
               placeholder="1"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+              className="w-full bg-transparent px-4 py-2 rounded-lg"
               disabled={formState === "loading"}
             />
             {errors.peopleCount && (
-              <p className="text-red-500 text-sm mt-1">{errors.peopleCount.message}</p>
+              <p className="text-burgundy text-sm mt-1">{errors.peopleCount.message}</p>
             )}
           </div>
 
@@ -190,7 +190,7 @@ export function RSVPForm() {
               <select
                 {...register("menuOption")}
                 id="menuOption"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+                className="w-full bg-transparent px-4 py-2 rounded-lg"
                 disabled={formState === "loading"}
               >
                 <option value="">Selectați o opțiune...</option>
@@ -201,7 +201,7 @@ export function RSVPForm() {
                 ))}
               </select>
               {errors.menuOption && (
-                <p className="text-red-500 text-sm mt-1">{errors.menuOption.message}</p>
+                <p className="text-burgundy text-sm mt-1">{errors.menuOption.message}</p>
               )}
             </div>
           )}
@@ -216,11 +216,11 @@ export function RSVPForm() {
               id="comment"
               placeholder="Lăsați orice mesaj sau observație..."
               rows={3}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 resize-none"
+              className="w-full bg-transparent px-4 py-2 rounded-lg resize-none"
               disabled={formState === "loading"}
             />
             {errors.comment && (
-              <p className="text-red-500 text-sm mt-1">{errors.comment.message}</p>
+              <p className="text-burgundy text-sm mt-1">{errors.comment.message}</p>
             )}
           </div>
 
@@ -232,7 +232,7 @@ export function RSVPForm() {
           </div>
 
           {/* Deadline */}
-          <p className="text-center text-sm text-gray-600">
+          <p className="text-center text-sm text-ivy/70">
             Vă rugăm să confirmați participarea până la{" "}
             <strong>{weddingConfig.details.rsvpDeadline}</strong>
           </p>

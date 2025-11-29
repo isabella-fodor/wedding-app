@@ -30,16 +30,16 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background-image: radial-gradient(rgba(150,128,12,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.9;
-  animation: particleShift 18s linear infinite;
+  background-image: radial-gradient(rgba(150,128,12,0.08) 1.5px, transparent 1.5px);
+  background-size: 50px 50px;
+  background-position: 0 0;
+  opacity: 1;
+  animation: particleShift 22s linear infinite;
 }
 
 @keyframes particleShift {
   0% { background-position: 0 0; }
-  50% { background-position: 200px 100px; }
-  100% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
 }
 
 /* Glassmorphism utilities */
@@ -86,10 +86,13 @@ body {
 .btn-gold:active, .btn-outline-gold:active { transform: translateY(0) scale(0.98); }
 .btn-gold:focus-visible, .btn-outline-gold:focus-visible { outline: 3px solid rgba(150,128,12,0.14); outline-offset: 3px; }
 
-/* Reduce decorative particle layer on small screens to save CPU/Battery */
-@media (max-width: 640px) {
+/* Reduce decorative particle layer on very small screens to save CPU/Battery */
+@media (max-width: 420px) {
   .bg-particles { display: none; }
 }
+
+/* Allow preview animations to show particles even on small screens when enabled */
+body.preview-animations .bg-particles { display: block; }
 
 /* Stronger preview animations when developer or user requests them */
 @keyframes fadeInStrong {

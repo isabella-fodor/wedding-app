@@ -10,13 +10,19 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-center py-16 px-6 animate-fade-in animate-delay-0">
+    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center text-center py-16 px-6 animate-fade-in animate-delay-0">
       {/* animated background layer */}
-      <div className="bg-particles" aria-hidden />
+      <div className="absolute inset-0 bg-particles z-0" aria-hidden />
 
-      {/* Floral left */}
-      <div className="hidden md:block absolute left-6 top-12 w-40 h-56 floral-float z-10">
-        <ParallaxImage src="/floral-left.svg" className="w-full h-full" speed={0.18} />
+      {/* Floral left - inline SVG test */}
+      <div className="absolute left-2 md:left-6 top-12 w-32 md:w-40 h-48 md:h-56 floral-float z-10 pointer-events-none" style={{ display: 'block' }}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200" fill="none" className="w-full h-full">
+          <path d="M10 180 C40 120, 20 80, 60 40" stroke="#2F4F4F" strokeWidth="2" fill="none" strokeLinecap="round"/>
+          <circle cx="20" cy="150" r="6" fill="#691216" />
+          <circle cx="40" cy="120" r="4" fill="#96800c" />
+          <circle cx="35" cy="160" r="3" fill="#691216" />
+          <circle cx="55" cy="90" r="5" fill="#96800c" />
+        </svg>
       </div>
 
       <div className="relative z-20 container-wide-lg">
@@ -41,8 +47,16 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="hidden md:block absolute right-6 bottom-12 w-40 h-56 floral-float z-10 rotate-12">
-        <ParallaxImage src="/floral-right.svg" className="w-full h-full" speed={0.22} />
+
+      {/* Floral right - inline SVG test */}
+      <div className="absolute right-2 md:right-6 bottom-12 w-32 md:w-40 h-48 md:h-56 floral-float z-10 rotate-12 pointer-events-none" style={{ display: 'block' }}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200" fill="none" className="w-full h-full">
+          <path d="M110 180 C80 120, 100 80, 60 40" stroke="#2F4F4F" strokeWidth="2" fill="none" strokeLinecap="round"/>
+          <circle cx="100" cy="150" r="6" fill="#691216" />
+          <circle cx="80" cy="120" r="4" fill="#96800c" />
+          <circle cx="85" cy="160" r="3" fill="#691216" />
+          <circle cx="65" cy="90" r="5" fill="#96800c" />
+        </svg>
       </div>
     </section>
   );
